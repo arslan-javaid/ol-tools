@@ -3,15 +3,91 @@
 <head>
     <meta charset="utf-8">
     <title>Using Browserify with OpenLayers</title>
-    <style>
-        #map {
-            width: 400px;
-            height: 250px;
-        }
-    </style>
+    <!-- Custom styles for this template -->
+    <link href="src/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div id="map"></div>
+<div id="content">
+    <ul class="nav nav-pills">
+        <li role="presentation" content="draw" class="active"><a>Draw</a></li>
+        <li role="presentation" content="draw"><a>Transform</a></li>
+        <li role="presentation" content="search"><a>Search</a></li>
+        <li role="presentation" content="route"><a>Route</a></li>
+    </ul>
+    <!-- Draw -->
+    <div id="draw" class="content-div">
+        <div id="projection-content" class="input-group">
+            <span class="input-group-addon">Projection</span>
+            <input type="text" id="projection" class="form-control" placeholder="3857" value="3857" aria-describedby="Longitude">
+        </div>
+
+        <div class="control">
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="lon-lat"  class="chk-draw" checked> Lon/Lat
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="point" class="chk-draw"> Point
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="linestring" class="chk-draw"> Linestring
+            </label>
+        </div>
+
+
+        <div id="lon-lat-content" class="draw-content">
+            <div class="input-group">
+                <span class="input-group-addon">Lon/Lat</span>
+                <input type="text" id="lon" class="form-control" placeholder="Longitude " aria-describedby="Longitude">
+                <input type="text" id="lat" class="form-control" placeholder="Latitude " aria-describedby="Latitude">
+            </div>
+            <button type="button" class="btn btn-success" onclick="javascript:OL.drawLonLat();">Draw</button>
+        </div>
+        <div style="clear:both"></div>
+
+        <div id="point-content" class="draw-content" style="display: none">
+            <div class="input-group">
+                <span class="input-group-addon">Point</span>
+                <input type="text" id="d-point" class="form-control" placeholder="Point " aria-describedby="Point">
+            </div>
+            <button type="button" class="btn btn-success" onclick="javascript:OL.drawPoint();">Draw</button>
+        </div>
+        <div style="clear:both"></div>
+
+        <div id="linestring-content" class="draw-content" style="display: none">
+            <div class="input-group">
+                <span class="input-group-addon">Linestring</span>
+                <input type="text" id="d-linestring" class="form-control" placeholder="Linestring " aria-describedby="Linestring">
+            </div>
+            <button type="button" class="btn btn-success" onclick="javascript:OL.drawLinestring();">Draw</button>
+        </div>
+
+    </div>
+
+    <!-- Transform -->
+    <div id="transform" class="content-div">
+
+    </div>
+
+    <!-- Search -->
+    <div id="search" class="content-div" style="display: none;">
+        <div id="search-content" class="input-group">
+            <span class="input-group-addon">Search</span>
+            <input type="text" id="search-txt" class="form-control" placeholder="search" aria-describedby="search">
+        </div>
+    </div>
+
+    <!-- Route -->
+    <div id="route" class="content-div"></div>
+
+
+    <div class="alert alert-success" role="alert" style="display: none;"></div>
+    <div class="alert alert-info" role="alert" style="display: none;"></div>
+    <div class="alert alert-warning" role="alert" style="display: none;"></div>
+    <div class="alert alert-danger" role="alert" style="display: none;"></div>
+</div>
+
+
 <script src="bundle.js"></script>
 </body>
 </html>
