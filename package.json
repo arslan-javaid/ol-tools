@@ -1,0 +1,38 @@
+{
+  "name": "ol-gis-tools",
+  "version": "1.0.0",
+  "description": "OpenLayers GIS Tools.",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify index.js -g cssify --outfile bundle.js & http-server",
+    "build": "browserify -g cssify index.js | uglifyjs --compress --output bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arslan-javaid/ol-tools.git"
+  },
+  "keywords": [
+    "Openlayers"
+  ],
+  "author": "Arslan Javaid <arslan.leo@live.com> (arslan-javaid.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arslan-javaid/ol-tools/issues"
+  },
+  "homepage": "https://github.com/arslan-javaid/ol-tools#readme",
+  "dependencies": {
+    "ol": "^4.6.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "cssify": "^1.0.3",
+    "http-server": "^0.10.0",
+    "uglify-js": "^3.3.4",
+    "watchify": "^3.9.0"
+  }
+}
