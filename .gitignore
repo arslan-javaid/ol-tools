@@ -1,0 +1,4 @@
+node_modules
+
+#IntelliJ specific files
+.idea/
